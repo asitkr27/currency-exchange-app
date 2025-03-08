@@ -47,4 +47,5 @@ applicable discounts. It exposes an API endpoint to submit a bill and get the pa
 **Access the Application:**
 
 The application will start on port 8080 by default.
+Method Type : POST
 You can access the API endpoint at http://localhost:8080/api/calculate.
