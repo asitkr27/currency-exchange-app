@@ -16,9 +16,9 @@ import org.springframework.web.client.RestTemplate;
 @Component
 @EnableCaching
 public class CurrencyExchangeServiceImpl implements CurrencyExchangeService {
+    private final RestTemplate restTemplate;
     private static final String API_URL = "https://v6.exchangerate-api.com/v6/";
     private static final String API_KEY = "dce31f10462e2ee38f0b1ba5";
-    private final RestTemplate restTemplate = new RestTemplate();
 
     // https://v6.exchangerate-api.com/v6/dce31f10462e2ee38f0b1ba5/latest/INR
     @Override
