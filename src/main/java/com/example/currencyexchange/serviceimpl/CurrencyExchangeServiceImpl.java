@@ -3,7 +3,6 @@ package com.example.currencyexchange.serviceimpl;
 import com.example.currencyexchange.dto.ExchangeRateResponse;
 import com.example.currencyexchange.exception.CurrencyConversionException;
 import com.example.currencyexchange.service.CurrencyExchangeService;
-import lombok.AllArgsConstructor;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.http.HttpStatus;
@@ -12,13 +11,16 @@ import org.springframework.web.client.HttpServerErrorException;
 import org.springframework.web.client.RestTemplate;
 
 
-@AllArgsConstructor
 @Component
 @EnableCaching
 public class CurrencyExchangeServiceImpl implements CurrencyExchangeService {
-    private final RestTemplate restTemplate;
     private static final String API_URL = "https://v6.exchangerate-api.com/v6/";
     private static final String API_KEY = "dce31f10462e2ee38f0b1ba5";
+    private final RestTemplate restTemplate;
+
+    public CurrencyExchangeServiceImpl(RestTemplate restTemplate) {
+        this.restTemplate = restTemplate;
+    }
 
     // https://v6.exchangerate-api.com/v6/dce31f10462e2ee38f0b1ba5/latest/INR
     @Override
